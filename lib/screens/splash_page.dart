@@ -88,7 +88,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                       child: Text.rich(
                         TextSpan(
                           text: "KK",
-                          style: GoogleFonts.alegreya(
+                          style: GoogleFonts.bonheurRoyale(
                             fontSize: context.isMobile ? 50 : 80,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 2,
@@ -96,7 +96,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
                           children: [
                             TextSpan(
                               text: ".",
-                              style: GoogleFonts.alegreya(
+                              style: GoogleFonts.bonheurRoyale(
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                             ),

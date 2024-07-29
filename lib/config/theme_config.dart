@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:personal_portfolio/config/colors_config.dart';
@@ -18,30 +20,31 @@ class ThemeConfig {
       useMaterial3: true,
       scaffoldBackgroundColor: ColorsConfig.primary,
       textTheme: TextTheme(
-        headlineLarge: GoogleFonts.alegreya(
+        headlineLarge: GoogleFonts.bonheurRoyale(
           fontSize: 127,
           fontWeight: FontWeight.normal,
         ),
-        headlineMedium: GoogleFonts.alegreya(
+        headlineMedium: GoogleFonts.bonheurRoyale(
           fontSize: 70,
           fontWeight: semiBold,
         ),
-        headlineSmall: GoogleFonts.alegreya(fontSize: 60, fontWeight: bold),
-        titleLarge: GoogleFonts.alegreya(fontSize: 48, fontWeight: bold),
-        titleMedium: GoogleFonts.alegreya(fontSize: 38, fontWeight: bold),
-        titleSmall: GoogleFonts.alegreya(fontSize: 26, fontWeight: bold),
-        labelLarge: GoogleFonts.alegreya(fontSize: 48, fontWeight: bold),
-        labelMedium: GoogleFonts.alegreya(fontSize: 25, fontWeight: bold),
-        labelSmall: GoogleFonts.alegreya(
+        headlineSmall:
+            GoogleFonts.bonheurRoyale(fontSize: 60, fontWeight: bold),
+        titleLarge: GoogleFonts.bonheurRoyale(fontSize: 48, fontWeight: bold),
+        titleMedium: GoogleFonts.bonheurRoyale(fontSize: 38, fontWeight: bold),
+        titleSmall: GoogleFonts.bonheurRoyale(fontSize: 26, fontWeight: bold),
+        labelLarge: GoogleFonts.bonheurRoyale(fontSize: 48, fontWeight: bold),
+        labelMedium: GoogleFonts.bonheurRoyale(fontSize: 25, fontWeight: bold),
+        labelSmall: GoogleFonts.bonheurRoyale(
           fontSize: 18,
           fontWeight: FontWeight.normal,
         ),
-        bodyLarge: GoogleFonts.alegreya(fontSize: 16, fontWeight: light),
-        bodyMedium: GoogleFonts.alegreya(
+        bodyLarge: GoogleFonts.bonheurRoyale(fontSize: 16, fontWeight: light),
+        bodyMedium: GoogleFonts.bonheurRoyale(
           fontSize: 12,
           fontWeight: FontWeight.w300,
         ),
-        bodySmall: GoogleFonts.alegreya(fontSize: 10, fontWeight: medium),
+        bodySmall: GoogleFonts.bonheurRoyale(fontSize: 10, fontWeight: medium),
       ).apply(
         bodyColor: Colors.white,
         displayColor: Colors.white.withOpacity(0.9),

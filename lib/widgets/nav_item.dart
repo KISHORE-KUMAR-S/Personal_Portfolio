@@ -72,7 +72,7 @@ class _NavItemState extends State<NavItem> {
         child: Center(
           child: OutlinedTextWidget(
             text: widget.title,
-            style: GoogleFonts.alegreya(
+            style: GoogleFonts.bonheurRoyale(
               fontSize: 40,
               fontWeight: FontWeight.bold,
               foreground: Constants.outlinedText(context, strokeWidth: 0.001),

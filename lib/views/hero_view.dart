@@ -1,7 +1,11 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:personal_portfolio/extension/screen_size_extension.dart';
+import 'package:personal_portfolio/utils/constants.dart';
 import 'package:personal_portfolio/widgets/nav_wrapper_widget.dart';
+import 'package:personal_portfolio/widgets/overlapping_hero_text_widget.dart';
+import 'package:personal_portfolio/widgets/overlapping_text_widget.dart';
 
 class HeroView extends StatefulWidget {
   final ScrollController scrollController;
@@ -29,6 +33,7 @@ class _HeroViewState extends State<HeroView> {
 
   @override
   Widget build(BuildContext context) {
+    const Duration animationDuration = Duration(milliseconds: 200);
     return NavWrapperWidget(
         child: SizedBox(
       height: MediaQuery.of(context).size.height,
@@ -39,6 +44,76 @@ class _HeroViewState extends State<HeroView> {
             clipBehavior: Clip.none,
             children: [
               _backgroundGradient(context),
+              AnimatedPositioned(
+                duration: animationDuration,
+                curve: Curves.easeOut,
+                right: context.isMobile ? 40 : constraints.maxWidth * 0.1,
+                top: _isScrolled ? 300 : 100,
+                child: const Opacity(
+                  opacity: 0.8,
+                  child: OverlappingHeroTextWidget(
+                    text: "KK.",
+                    initialXOffset: 200,
+                    initialYOffset: 200,
+                  ),
+                ),
+              ),
+              AnimatedPositioned(
+                duration: animationDuration,
+                curve: Curves.easeOut,
+                bottom: _isScrolled ? -100 : -50,
+                right: constraints.maxWidth * 0.2,
+                child: const OverlappingHeroTextWidget(
+                  text: "KK.",
+                  initialXOffset: -200,
+                  initialYOffset: 200,
+                ),
+              ),
+              AnimatedPositioned(
+                left: context.isMobile ? 20 : 150,
+                duration: animationDuration,
+                curve: Curves.easeOut,
+                bottom: _isScrolled
+                    ? 300
+                    : context.isMobile
+                        ? 300
+                        : 150,
+                child: const OverlappingHeroTextWidget(
+                  text: "KK.",
+                  initialXOffset: -200,
+                  initialYOffset: 200,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Entry.opacity(
+                        child: OverlappingTextWidget(
+                          text: 'Kishore',
+                          offset: Offset(
+                            -_heroTitleFontSize(context) / 3,
+                            -_heroTitleFontSize(context) / 3,
+                          ),
+                          foregroundStyle: Theme.of(context)
+                              .textTheme
+                              .headlineLarge
+                              ?.copyWith(
+                                fontSize: _heroTitleFontSize(context),
+                              ),
+                          backgroundStyle: GoogleFonts.bonheurRoyale(
+                            fontSize: _heroTitleFontSize(context),
+                            foreground: Constants.outlinedText(context),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           );
         },
@@ -81,5 +156,13 @@ class _HeroViewState extends State<HeroView> {
         ),
       ),
     );
+  }
+
+  _heroTitleFontSize(BuildContext context) {
+    return (context.isTablet)
+        ? 100
+        : (context.isMobile)
+            ? 80
+            : 127;
   }
 }

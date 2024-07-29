@@ -86,7 +86,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
             child: Text.rich(
               TextSpan(
                 text: "KK",
-                style: GoogleFonts.alegreya(
+                style: GoogleFonts.bonheurRoyale(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 3,
@@ -94,7 +94,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
                 children: [
                   TextSpan(
                     text: ".",
-                    style: GoogleFonts.alegreya(
+                    style: GoogleFonts.bonheurRoyale(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                   )

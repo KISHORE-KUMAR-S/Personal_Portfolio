@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'
+    show ChangeNotifierProvider, Consumer, ReadContext;
 
 import 'package:personal_portfolio/providers/cursor_provider.dart';
 
