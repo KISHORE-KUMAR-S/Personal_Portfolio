@@ -1,5 +1,6 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:personal_portfolio/extension/screen_size_extension.dart';
 
 class OverlappingHeroTextWidget extends StatelessWidget {
@@ -32,6 +33,16 @@ class OverlappingHeroTextWidget extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: FontWeight.bold,
     );
+
+    // final defaultBackgroundStyle = GoogleFonts.bonheurRoyale(
+    //   color: theme.colorScheme.secondary,
+    //   fontSize: fontSize,
+    // );
+
+    // final defaultForegroundStyle = GoogleFonts.bonheurRoyale(
+    //   fontSize: fontSize,
+    //   fontWeight: FontWeight.bold
+    // );
 
     return Entry.all(
       xOffset: 400,

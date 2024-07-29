@@ -19,48 +19,8 @@ class ThemeConfig {
       ),
       useMaterial3: true,
       scaffoldBackgroundColor: ColorsConfig.primary,
-      textTheme: TextTheme(
-        headlineLarge: GoogleFonts.bonheurRoyale(
-          fontSize: 127,
-          fontWeight: FontWeight.normal,
-        ),
-        headlineMedium: GoogleFonts.bonheurRoyale(
-          fontSize: 70,
-          fontWeight: semiBold,
-        ),
-        headlineSmall:
-            GoogleFonts.bonheurRoyale(fontSize: 60, fontWeight: bold),
-        titleLarge: GoogleFonts.bonheurRoyale(fontSize: 48, fontWeight: bold),
-        titleMedium: GoogleFonts.bonheurRoyale(fontSize: 38, fontWeight: bold),
-        titleSmall: GoogleFonts.bonheurRoyale(fontSize: 26, fontWeight: bold),
-        labelLarge: GoogleFonts.bonheurRoyale(fontSize: 48, fontWeight: bold),
-        labelMedium: GoogleFonts.bonheurRoyale(fontSize: 25, fontWeight: bold),
-        labelSmall: GoogleFonts.bonheurRoyale(
-          fontSize: 18,
-          fontWeight: FontWeight.normal,
-        ),
-        bodyLarge: GoogleFonts.bonheurRoyale(fontSize: 16, fontWeight: light),
-        bodyMedium: GoogleFonts.bonheurRoyale(
-          fontSize: 12,
-          fontWeight: FontWeight.w300,
-        ),
-        bodySmall: GoogleFonts.bonheurRoyale(fontSize: 10, fontWeight: medium),
-      ).apply(
-        bodyColor: Colors.white,
-        displayColor: Colors.white.withOpacity(0.9),
-        decorationColor: Colors.white,
-      ),
-      colorScheme: const ColorScheme(
-        brightness: Brightness.light,
-        primary: ColorsConfig.primary,
-        onPrimary: ColorsConfig.primary,
-        secondary: ColorsConfig.secondary,
-        onSecondary: Colors.red,
-        error: Colors.red,
-        onError: Colors.red,
-        surface: ColorsConfig.primary,
-        onSurface: ColorsConfig.primary,
-      ),
+      textTheme: _buildTextTheme(),
+      colorScheme: _buildColorScheme(ColorsConfig.primary),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       inputDecorationTheme: const InputDecorationTheme(
         filled: true,
@@ -71,16 +31,57 @@ class ThemeConfig {
     return [
       defaultTheme,
       modifyColorWithDefaultTheme(defaultTheme, const Color(0xffEF476F)),
-      modifyColorWithDefaultTheme(
-          defaultTheme, const Color.fromARGB(255, 239, 71, 211)),
+      modifyColorWithDefaultTheme(defaultTheme, const Color(0xffEF47D3)),
       modifyColorWithDefaultTheme(defaultTheme, const Color(0xff479FEF)),
       modifyColorWithDefaultTheme(defaultTheme, const Color(0xffCBAC40)),
-      modifyColorWithDefaultTheme(defaultTheme, const Color(0xffc4dc662)),
+      modifyColorWithDefaultTheme(defaultTheme, const Color(0xffC4DC66)),
     ];
   }
 
-  static modifyColorWithDefaultTheme(ThemeData theme, Color color) {
+  static ThemeData modifyColorWithDefaultTheme(ThemeData theme, Color color) {
     return theme.copyWith(
-        colorScheme: theme.colorScheme.copyWith(secondary: color));
+      colorScheme: theme.colorScheme.copyWith(secondary: color),
+    );
+  }
+
+  static TextTheme _buildTextTheme() {
+    return TextTheme(
+      headlineLarge: _textStyle(130, FontWeight.normal),
+      headlineMedium: _textStyle(80, semiBold),
+      headlineSmall: _textStyle(70, bold),
+      titleLarge: _textStyle(50, bold),
+      titleMedium: _textStyle(40, bold),
+      titleSmall: _textStyle(30, bold),
+      labelLarge: _textStyle(50, bold),
+      labelMedium: _textStyle(30, bold),
+      labelSmall: _textStyle(20, FontWeight.normal),
+      bodyLarge: _textStyle(20, light),
+      bodyMedium: _textStyle(14, light),
+      bodySmall: _textStyle(12, medium),
+    ).apply(
+      bodyColor: Colors.white,
+      displayColor: Colors.white.withOpacity(0.9),
+      decorationColor: Colors.white,
+    );
+  }
+
+  static TextStyle _textStyle(double fontSize, FontWeight fontWeight) {
+    return GoogleFonts.cormorantGaramond(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+    );
+  }
+
+  static ColorScheme _buildColorScheme(Color primaryColor) {
+    return ColorScheme.light(
+      primary: primaryColor,
+      onPrimary: primaryColor,
+      secondary: ColorsConfig.secondary,
+      onSecondary: Colors.red,
+      error: Colors.red,
+      onError: Colors.red,
+      surface: primaryColor,
+      onSurface: primaryColor,
+    );
   }
 }

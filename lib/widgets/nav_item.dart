@@ -72,12 +72,15 @@ class _NavItemState extends State<NavItem> {
         child: Center(
           child: OutlinedTextWidget(
             text: widget.title,
-            style: GoogleFonts.bonheurRoyale(
+            style: GoogleFonts.laBelleAurore(
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              foreground: Constants.outlinedText(context, strokeWidth: 0.001),
+              foreground: Constants.outlinedText(
+                context,
+                strokeWidth: 0.001,
+              ),
             ),
-            strokeWidth: 2,
+            strokeWidth: 0.001,
             strokeColor: Theme.of(context).colorScheme.secondary,
           ),
         ),
@@ -97,7 +100,9 @@ class _NavItemState extends State<NavItem> {
         },
         child: Text(
           widget.title,
-          style: Theme.of(context).textTheme.titleMedium,
+          style: GoogleFonts.laBelleAurore(
+            fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+          ),
         ),
       ),
     );

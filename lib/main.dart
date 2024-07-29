@@ -31,7 +31,7 @@ class MainApp extends StatelessWidget {
           textDirection: TextDirection.ltr,
           child: CursorWidget(
             child: MaterialApp.router(
-              title: "Kishore Kumar Sivakumar's Portfolio",
+              title: "Kishore Kumar Sivakumar",
               debugShowCheckedModeBanner: false,
               theme: value.currentTheme,
               routerConfig: router,

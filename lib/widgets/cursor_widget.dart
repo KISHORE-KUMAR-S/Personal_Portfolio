@@ -66,8 +66,10 @@ class CursorWidget extends StatelessWidget {
     return Visibility(
       visible: state.offset != Offset.zero,
       child: AnimatedPositioned(
-        left: state.offset.dx - state.size.width / 2,
-        top: state.offset.dy - state.size.height / 2,
+        left: state.offset.dx - state.size.width / 16,
+        top: state.offset.dy - state.size.height / 16,
+        width: state.size.width / 10,
+        height: state.size.height / 10,
         duration: const Duration(milliseconds: 50),
         child: IgnorePointer(
           child: AnimatedContainer(

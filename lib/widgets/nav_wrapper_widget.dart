@@ -29,7 +29,6 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
               children: [
                 _buildAnimatedNavBar(context, value),
                 _buildTopBar(context),
-                const NavDrawerButton(),
               ],
             );
           },
@@ -50,9 +49,12 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
         decoration: BoxDecoration(
           color: Colors.black,
           gradient: RadialGradient(
+            center: Alignment.topRight,
+            radius: 0.6,
+            focal: Alignment.topRight,
             colors: [
               Theme.of(context).colorScheme.secondary.darken(0.4),
-              Colors.black,
+              Colors.black
             ],
           ),
         ),
@@ -64,7 +66,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
             children: [
               _buildNavItem(context, "Experience", Routes.experience),
               _buildNavItem(context, "Projects", Routes.work),
-              _buildNavItem(context, "Contact", Routes.contact),
+              _buildNavItem(context, "Contacts", Routes.contact),
               _buildNavItem(context, "About", Routes.about),
             ],
           ),
@@ -85,7 +87,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
             onTap: () => context.go(Routes.home),
             child: Text.rich(
               TextSpan(
-                text: "KK",
+                text: "Kishore Kumar S",
                 style: GoogleFonts.bonheurRoyale(
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
@@ -93,7 +95,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
                 ),
                 children: [
                   TextSpan(
-                    text: ".",
+                    text: "ivakumar",
                     style: GoogleFonts.bonheurRoyale(
                       color: Theme.of(context).colorScheme.secondary,
                     ),
@@ -102,6 +104,7 @@ class _NavWrapperWidgetState extends State<NavWrapperWidget> {
               ),
             ),
           ),
+          const NavDrawerButton(),
         ],
       ),
     );
