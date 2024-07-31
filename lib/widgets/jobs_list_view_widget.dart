@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:visibility_detector/visibility_detector.dart'
     show VisibilityDetector, VisibilityInfo;
 
@@ -64,19 +65,43 @@ class _JobsListViewWidgetState extends State<JobsListViewWidget>
                     : (index + 1) / Experience.ksExperiences.length;
 
                 return context.getResponsiveValue([
-                  MobileStepCard(
+                  MobileStepCard<Experience>(
                     model: e,
                     animation: _controller,
                     start: start,
                     end: end,
                     index: index + 1,
+                    getTitle: (e) => e.company,
+                    getSubtitle: (e) {
+                      final formatter = DateFormat("MMMM yyyy");
+                      String startDateFormatted = formatter.format(e.startDate);
+                      String endDateFormatted = formatter.format(e.endDate);
+                      String currentDateFormatted =
+                          formatter.format(DateTime.now());
+                      return "$startDateFormatted - ${endDateFormatted == currentDateFormatted ? "Present" : endDateFormatted}";
+                    },
+                    formatDate: (DateTime date) =>
+                        DateFormat("MMMM yyyy").format(date),
+                    getResponsibilities: (item) => e.responsibilities,
                   ),
-                  MobileStepCard(
+                  MobileStepCard<Experience>(
                     model: e,
                     animation: _controller,
                     start: start,
                     end: end,
                     index: index + 1,
+                    getTitle: (e) => e.company,
+                    getSubtitle: (e) {
+                      final formatter = DateFormat("MMMM yyyy");
+                      String startDateFormatted = formatter.format(e.startDate);
+                      String endDateFormatted = formatter.format(e.endDate);
+                      String currentDateFormatted =
+                          formatter.format(DateTime.now());
+                      return "$startDateFormatted - ${endDateFormatted == currentDateFormatted ? "Present" : endDateFormatted}";
+                    },
+                    formatDate: (DateTime date) =>
+                        DateFormat("MMMM yyyy").format(date),
+                    getResponsibilities: (item) => e.responsibilities,
                   ),
                   DesktopStepCard(
                     model: e,
@@ -84,6 +109,19 @@ class _JobsListViewWidgetState extends State<JobsListViewWidget>
                     start: start,
                     end: end,
                     index: index + 1,
+                    getTitle: (e) => e.company,
+                    getSubtitle: (e) {
+                      final formatter = DateFormat("MMMM yyyy");
+                      String startDateFormatted = formatter.format(e.startDate);
+                      String endDateFormatted = formatter.format(e.endDate);
+                      String currentDateFormatted =
+                          formatter.format(DateTime.now());
+                      return "$startDateFormatted - ${endDateFormatted == currentDateFormatted ? "Present" : endDateFormatted}";
+                    },
+                    formatDate: (DateTime date) =>
+                        DateFormat("MMMM yyyy").format(date),
+                    getResponsibilities: (item) => e.responsibilities,
+                    image: e.image,
                   ),
                 ]);
               },

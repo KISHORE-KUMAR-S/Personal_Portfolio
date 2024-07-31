@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_portfolio/views/achievements_view.dart';
+import 'package:personal_portfolio/views/education_view.dart';
 import 'package:personal_portfolio/views/experience_view.dart';
 import 'package:provider/provider.dart' show Consumer;
 
@@ -42,8 +43,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           HeroView(scrollController: _scrollController),
                           const ExperienceView(),
-                          // RecentWorksView(),
                           const AchievementsView(),
+                          const EducationView(),
                           // ContactView(),
                           // FooterView(),
                         ],

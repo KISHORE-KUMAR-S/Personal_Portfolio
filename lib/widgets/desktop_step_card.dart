@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' show DateFormat;
-
 import '../extension/string_extension.dart';
-import '../utils/experience.dart';
+import 'mobile_step_card.dart';
+
 import 'three_dimension_flip_widget.dart';
 
-class DesktopStepCard extends StatelessWidget {
-  final Experience model;
+class DesktopStepCard<T> extends StatelessWidget {
+  final T model;
   final Animation<double> animation;
   final double start, end;
   final int index;
+  final String Function(T) getTitle;
+  final String Function(T) getSubtitle;
+  final StringFormatter formatDate;
+  final StringListMapper getResponsibilities;
+  final AssetImage image;
 
   const DesktopStepCard({
     super.key,
@@ -18,6 +22,11 @@ class DesktopStepCard extends StatelessWidget {
     required this.start,
     required this.end,
     required this.index,
+    required this.getTitle,
+    required this.getSubtitle,
+    required this.formatDate,
+    required this.getResponsibilities,
+    required this.image,
   });
 
   Animation<double> get curvedAnimation => CurvedAnimation(
@@ -32,11 +41,6 @@ class DesktopStepCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     EdgeInsetsGeometry padding = const EdgeInsets.only(left: 30, bottom: 100);
-
-    final DateFormat formatter = DateFormat("MMMM yyyy");
-    String startDateFormatted = formatter.format(model.startDate);
-    String endDateFormatted = formatter.format(model.endDate);
-    String currentDateFormatted = formatter.format(DateTime.now());
 
     return IntrinsicHeight(
       child: Row(
@@ -54,22 +58,40 @@ class DesktopStepCard extends StatelessWidget {
                     left: MediaQuery.of(context).size.width * 0.1,
                     top: 15,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
+                  child: Column(
                     children: [
-                      Text(
-                        "$index",
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontWeight: FontWeight.w200,
-                            ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            "$index",
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      fontWeight: FontWeight.w200,
+                                    ),
+                          ),
+                          const SizedBox(width: 30),
+                          Text(
+                            getSubtitle(model),
+                            maxLines: 2,
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      fontWeight: FontWeight.w200,
+                                    ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 30),
-                      Text(
-                        "$startDateFormatted - ${endDateFormatted == currentDateFormatted ? "Present" : endDateFormatted}",
-                        maxLines: 2,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontWeight: FontWeight.w200,
-                            ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ImageIcon(
+                            image,
+                            color: Theme.of(context).colorScheme.secondary,
+                            size: 200,
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -100,23 +122,14 @@ class DesktopStepCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      model.company,
+                      getTitle(model),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
                           ?.copyWith(height: 1.3),
                     ),
-                    Text(
-                      model.position,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                    if (model.type == JobType.remote) const Text("(Remote)"),
-                    if (model.type == JobType.intern)
-                      const Text("(Internship)"),
                     const SizedBox(height: 30),
-                    ...model.responsibilities.map(
+                    ...getResponsibilities(model).map(
                       (e) {
                         return Text(
                           e.prefixDash(),

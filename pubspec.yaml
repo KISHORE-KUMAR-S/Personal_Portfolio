@@ -32,5 +32,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets: 
+    - assets\holy_cross_logo.png
+    - assets\ksrct_logo.png
+    - assets\rurutek_logo.png
+
           
     

@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../extension/screen_size_extension.dart';
 import '../utils/constants.dart';
 import 'overlapping_hero_text_widget.dart';
@@ -36,13 +35,17 @@ class ProcessCard extends StatelessWidget {
                         alignment: Alignment.center,
                         child: OverlappingHeroTextWidget(
                           text: number,
-                          backgroundStyle: GoogleFonts.bonheurRoyale(
-                            fontSize: 80,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                          foregroundStyle: GoogleFonts.bonheurRoyale(
-                            fontSize: 80,
-                          ),
+                          backgroundStyle: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.secondary,
+                                fontSize: 100,
+                              ),
+                          foregroundStyle: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontSize: 100),
                           backgroundText: number,
                         ),
                       ),
@@ -114,13 +117,15 @@ class ProcessCard extends StatelessWidget {
                       isReversed ? Alignment.centerLeft : Alignment.centerRight,
                   child: OverlappingHeroTextWidget(
                     text: number,
-                    backgroundStyle: GoogleFonts.bonheurRoyale(
-                      fontSize: 100,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-                    foregroundStyle: GoogleFonts.bonheurRoyale(
-                      fontSize: 100,
-                    ),
+                    backgroundStyle:
+                        Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 100,
+                            ),
+                    foregroundStyle: Theme.of(context)
+                        .textTheme
+                        .titleLarge
+                        ?.copyWith(fontSize: 100),
                     backgroundText: number,
                     offset: const Offset(-20, 10),
                   ),

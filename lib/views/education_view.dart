@@ -1,17 +1,17 @@
-import 'package:entry/entry.dart';
+import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:personal_portfolio/widgets/jobs_list_view_widget.dart';
-import 'package:personal_portfolio/widgets/section_title.dart';
-import 'package:personal_portfolio/widgets/slide_box_widget.dart';
+import '../widgets/education_list_view_widget.dart';
+import '../widgets/section_title.dart';
+import '../widgets/slide_box_widget.dart';
 
-class ExperienceView extends StatefulWidget {
-  const ExperienceView({super.key});
+class EducationView extends StatefulWidget {
+  const EducationView({super.key});
 
   @override
-  State<ExperienceView> createState() => _ExperienceViewState();
+  State<EducationView> createState() => _EducationViewState();
 }
 
-class _ExperienceViewState extends State<ExperienceView>
+class _EducationViewState extends State<EducationView>
     with TickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -37,8 +37,8 @@ class _ExperienceViewState extends State<ExperienceView>
         children: [
           SizedBox(height: MediaQuery.of(context).size.height * 0.3),
           const SectionTitle(
-            backgroundText: "WORK",
-            foregroundText: "EXPERIENCE",
+            backgroundText: "EDUCATION",
+            foregroundText: "QUALIFICATION",
           ),
           const SizedBox(height: 100),
           Align(
@@ -57,7 +57,7 @@ class _ExperienceViewState extends State<ExperienceView>
             ),
           ),
           const SizedBox(height: 70),
-          const JobsListViewWidget(),
+          const EducationListViewWidget(),
         ],
       ),
     );

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:personal_portfolio/extension/string_extension.dart';
-
-import 'package:personal_portfolio/utils/experience.dart';
-
 import 'package:personal_portfolio/widgets/horizontal_stick_widget.dart';
 import 'package:personal_portfolio/widgets/three_dimension_flip_widget.dart';
 
-class MobileStepCard extends StatelessWidget {
-  final Experience model;
+typedef StringFormatter = String Function(DateTime date);
+typedef StringListMapper = List<String> Function(dynamic item);
+
+class MobileStepCard<T> extends StatelessWidget {
+  final T model;
   final Animation<double> animation;
   final double start, end;
   final int index;
+  final String Function(T) getTitle;
+  final String Function(T) getSubtitle;
+  final StringFormatter formatDate;
+  final StringListMapper getResponsibilities;
 
   const MobileStepCard({
     super.key,
@@ -20,6 +24,10 @@ class MobileStepCard extends StatelessWidget {
     required this.start,
     required this.end,
     required this.index,
+    required this.getTitle,
+    required this.getSubtitle,
+    required this.formatDate,
+    required this.getResponsibilities,
   });
 
   Animation<double> get curvedAnimation => CurvedAnimation(
@@ -34,9 +42,7 @@ class MobileStepCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateFormat formatter = DateFormat("MMMM yyyy");
-    String startDateFormatted = formatter.format(model.startDate);
-    String endDateFormatted = formatter.format(model.endDate);
-    String currentDateFormatted = formatter.format(DateTime.now());
+    formatter.format(DateTime.now());
 
     EdgeInsetsGeometry padding = const EdgeInsets.all(10);
 
@@ -65,7 +71,7 @@ class MobileStepCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 30),
                     Text(
-                      "$startDateFormatted - ${endDateFormatted == currentDateFormatted ? "Present" : endDateFormatted}",
+                      getSubtitle(model),
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
@@ -88,16 +94,13 @@ class MobileStepCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      model.company,
+                      getTitle(model),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
                           ?.copyWith(height: 1.2),
                     ),
-                    if (model.type == JobType.remote) const Text("(Remote)"),
-                    if (model.type == JobType.intern)
-                      const Text("(Internship)"),
-                    ...model.responsibilities.map(
+                    ...getResponsibilities(model).map(
                       (e) => Text(
                         e.prefixDash(),
                         style: Theme.of(context)
