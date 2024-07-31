@@ -6,13 +6,14 @@ import 'package:personal_portfolio/utils/constants.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class SectionTitle extends StatefulWidget {
-  final String backgroundText, foregroundText, subtitle;
+  final String backgroundText, foregroundText;
+  final String? subtitle;
 
   const SectionTitle({
     super.key,
     required this.backgroundText,
     required this.foregroundText,
-    required this.subtitle,
+    this.subtitle,
   });
 
   @override
@@ -100,17 +101,18 @@ class _SectionTitleState extends State<SectionTitle>
                           ),
                         ),
                         const SizedBox(width: 20),
-                        AnimatedOpacity(
-                          opacity: isVisible ? 1 : 0,
-                          duration: const Duration(milliseconds: 500),
-                          child: AnimatedSlide(
-                            offset: isVisible
-                                ? const Offset(0, 0)
-                                : const Offset(2, 0),
+                        if (widget.subtitle != null)
+                          AnimatedOpacity(
+                            opacity: isVisible ? 1 : 0,
                             duration: const Duration(milliseconds: 500),
-                            child: Text(widget.subtitle),
-                          ),
-                        )
+                            child: AnimatedSlide(
+                              offset: isVisible
+                                  ? const Offset(0, 0)
+                                  : const Offset(2, 0),
+                              duration: const Duration(milliseconds: 500),
+                              child: Text(widget.subtitle!),
+                            ),
+                          )
                       ],
                     ),
                   ),
