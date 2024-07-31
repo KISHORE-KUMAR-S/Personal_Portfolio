@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:personal_portfolio/extension/string_extension.dart';
-import 'package:personal_portfolio/utils/experience.dart';
-import 'package:personal_portfolio/widgets/three_dimension_flip_widget.dart';
+import 'package:intl/intl.dart' show DateFormat;
+
+import '../extension/string_extension.dart';
+import '../utils/experience.dart';
+import 'three_dimension_flip_widget.dart';
 
 class DesktopStepCard extends StatelessWidget {
   final Experience model;
