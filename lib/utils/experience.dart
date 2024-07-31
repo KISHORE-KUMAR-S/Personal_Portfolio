@@ -28,7 +28,9 @@ class Experience {
       position: "Software Engineer",
       responsibilities: [
         "Started my journey as Mobile App Developer",
-        "Worked closely with UI/UX Designers & Backend Developers",
+        "Collaborated with Senior Developers",
+        "Build intuitive, engaging and progressive User Interactions for Mobile Apps",
+        "Fixed bugs and performance problems"
       ],
     ),
     Experience(

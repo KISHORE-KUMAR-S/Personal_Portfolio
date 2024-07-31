@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
-
 import 'package:personal_portfolio/extension/string_extension.dart';
+
 import 'package:personal_portfolio/utils/experience.dart';
 
 import 'package:personal_portfolio/widgets/horizontal_stick_widget.dart';
 import 'package:personal_portfolio/widgets/three_dimension_flip_widget.dart';
 
 class MobileStepCard extends StatelessWidget {
-  final dynamic model;
+  final Experience model;
   final Animation<double> animation;
   final double start, end;
   final int index;
@@ -34,8 +34,8 @@ class MobileStepCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateFormat formatter = DateFormat("MMMM yyyy");
-    String startDateFormatted = formatter.format(model.start);
-    String endDateFormatted = formatter.format(model.end);
+    String startDateFormatted = formatter.format(model.startDate);
+    String endDateFormatted = formatter.format(model.endDate);
     String currentDateFormatted = formatter.format(DateTime.now());
 
     EdgeInsetsGeometry padding = const EdgeInsets.all(10);
@@ -61,7 +61,7 @@ class MobileStepCard extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.w200),
+                          ?.copyWith(fontWeight: FontWeight.w200, fontSize: 14),
                     ),
                     const SizedBox(width: 30),
                     Text(
@@ -69,7 +69,7 @@ class MobileStepCard extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.w200),
+                          ?.copyWith(fontWeight: FontWeight.w200, fontSize: 14),
                     ),
                   ],
                 ),
@@ -98,7 +98,13 @@ class MobileStepCard extends StatelessWidget {
                     if (model.type == JobType.intern)
                       const Text("(Internship)"),
                     ...model.responsibilities.map(
-                      (e) => Text(e.prefixDash()),
+                      (e) => Text(
+                        e.prefixDash(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontSize: 16),
+                      ),
                     ),
                   ],
                 ),

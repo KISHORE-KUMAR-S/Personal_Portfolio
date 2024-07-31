@@ -7,18 +7,7 @@ class ExperiencePage extends StatefulWidget {
   State<ExperiencePage> createState() => _ExperiencePageState();
 }
 
-class _ExperiencePageState extends State<ExperiencePage>
-    with TickerProviderStateMixin {
-  late AnimationController _stickController;
-
-  @override
-  void initState() {
-    super.initState();
-    _stickController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 2500))
-      ..repeat();
-  }
-
+class _ExperiencePageState extends State<ExperiencePage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
