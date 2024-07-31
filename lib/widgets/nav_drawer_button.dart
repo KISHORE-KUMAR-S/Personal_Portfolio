@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart' show Provider, Selector;
 
-import 'package:personal_portfolio/providers/state_provider.dart';
+import '../providers/state_provider.dart';
 
 class NavDrawerButton extends StatelessWidget {
   const NavDrawerButton({super.key});

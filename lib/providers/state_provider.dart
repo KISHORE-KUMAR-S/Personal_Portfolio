@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show ChangeNotifier, ThemeData;
 
-import 'package:personal_portfolio/config/theme_config.dart';
-import 'package:personal_portfolio/preferences/theme_preferences.dart';
+import '../config/theme_config.dart';
+import '../preferences/theme_preferences.dart';
 
 class StateProvider extends ChangeNotifier {
   bool _isNavBarOpen = false, _isSplashAnimationDone = false;
@@ -26,7 +26,7 @@ class StateProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  setNavAnimationStstus(bool status) {
+  setNavAnimationStatus(bool status) {
     _isSplashAnimationDone = status;
     notifyListeners();
   }

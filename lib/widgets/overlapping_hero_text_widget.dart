@@ -1,15 +1,13 @@
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_portfolio/extension/screen_size_extension.dart';
+import '../extension/screen_size_extension.dart';
 
 class OverlappingHeroTextWidget extends StatelessWidget {
   final Offset offset;
   final String text;
-  final TextStyle? backgroundStyle;
+  final TextStyle? backgroundStyle, foregroundStyle;
   final String? backgroundText;
-  final double initialXOffset;
-  final double initialYOffset;
+  final double? initialXOffset, initialYOffset;
 
   const OverlappingHeroTextWidget({
     super.key,
@@ -17,8 +15,9 @@ class OverlappingHeroTextWidget extends StatelessWidget {
     required this.text,
     this.backgroundStyle,
     this.backgroundText,
-    required this.initialXOffset,
-    required this.initialYOffset,
+    this.foregroundStyle,
+    this.initialXOffset,
+    this.initialYOffset,
   });
 
   @override
@@ -34,16 +33,6 @@ class OverlappingHeroTextWidget extends StatelessWidget {
       fontWeight: FontWeight.bold,
     );
 
-    // final defaultBackgroundStyle = GoogleFonts.bonheurRoyale(
-    //   color: theme.colorScheme.secondary,
-    //   fontSize: fontSize,
-    // );
-
-    // final defaultForegroundStyle = GoogleFonts.bonheurRoyale(
-    //   fontSize: fontSize,
-    //   fontWeight: FontWeight.bold
-    // );
-
     return Entry.all(
       xOffset: 400,
       yOffset: 300,
@@ -56,8 +45,8 @@ class OverlappingHeroTextWidget extends StatelessWidget {
         fit: StackFit.passthrough,
         children: [
           Entry.all(
-            xOffset: initialXOffset,
-            yOffset: initialYOffset,
+            xOffset: initialXOffset ?? 0.0,
+            yOffset: initialYOffset ?? 0.0,
             opacity: 0,
             scale: 1,
             delay: const Duration(seconds: 1),
@@ -73,7 +62,7 @@ class OverlappingHeroTextWidget extends StatelessWidget {
           ),
           Text(
             text,
-            style: defaultForegroundStyle,
+            style: foregroundStyle ?? defaultForegroundStyle,
           ),
         ],
       ),

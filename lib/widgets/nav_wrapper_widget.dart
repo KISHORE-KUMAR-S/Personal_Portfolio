@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'package:provider/provider.dart' show Consumer;
 
-import 'package:personal_portfolio/extension/color_extension.dart';
-import 'package:personal_portfolio/providers/state_provider.dart';
-import 'package:personal_portfolio/router/routes.dart';
-import 'package:personal_portfolio/widgets/nav_drawer_button.dart';
-import 'package:personal_portfolio/widgets/nav_item.dart';
+import '../extension/color_extension.dart';
+import '../providers/state_provider.dart';
+import '../router/routes.dart';
+import 'nav_drawer_button.dart';
+import 'nav_item.dart';
 
 class NavWrapperWidget extends StatefulWidget {
   final Widget child;

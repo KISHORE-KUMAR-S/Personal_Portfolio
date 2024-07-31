@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_portfolio/config/colors_config.dart';
+import 'colors_config.dart';
 
 const bold = FontWeight.w700;
 const semiBold = FontWeight.w600;

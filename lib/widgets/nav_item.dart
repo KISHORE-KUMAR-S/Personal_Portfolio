@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'package:provider/provider.dart';
 
-import 'package:personal_portfolio/providers/state_provider.dart';
-import 'package:personal_portfolio/utils/constants.dart';
-import 'package:personal_portfolio/widgets/outlined_text_widget.dart';
+import '../providers/state_provider.dart';
+import '../utils/constants.dart';
+import 'outlined_text_widget.dart';
 
 class NavItem extends StatefulWidget {
   final String title;

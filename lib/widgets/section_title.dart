@@ -1,18 +1,21 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
+import 'package:visibility_detector/visibility_detector.dart'
+    show VisibilityDetector;
+
 import 'package:personal_portfolio/extension/screen_size_extension.dart';
 import 'package:personal_portfolio/utils/constants.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 class SectionTitle extends StatefulWidget {
-  final String backgroundText, foregroundText, subtitle;
+  final String backgroundText, foregroundText;
+  final String? subtitle;
 
   const SectionTitle({
     super.key,
     required this.backgroundText,
     required this.foregroundText,
-    required this.subtitle,
+    this.subtitle,
   });
 
   @override
@@ -42,10 +45,10 @@ class _SectionTitleState extends State<SectionTitle>
                     delay: const Duration(seconds: 2),
                     child: Transform.translate(
                       offset: context.getResponsiveValue(
-                        [
-                          const Offset(0, -30),
-                          const Offset(-70, -40),
-                          const Offset(-70, -50),
+                        const [
+                          Offset(0, -30),
+                          Offset(-70, -40),
+                          Offset(-70, -50),
                         ],
                       ),
                       child: AutoSizeText(
@@ -57,11 +60,7 @@ class _SectionTitleState extends State<SectionTitle>
                               fontSize: context
                                   .getResponsiveValue([60, 80, 100]).toDouble(),
                               height: 0.9,
-                              foreground: Paint()
-                                ..style = PaintingStyle.stroke
-                                ..strokeWidth = 1
-                                ..color =
-                                    Theme.of(context).colorScheme.secondary,
+                              foreground: Constants.outlinedText(context),
                             ),
                         maxLines: 1,
                       ),
@@ -100,17 +99,18 @@ class _SectionTitleState extends State<SectionTitle>
                           ),
                         ),
                         const SizedBox(width: 20),
-                        AnimatedOpacity(
-                          opacity: isVisible ? 1 : 0,
-                          duration: const Duration(milliseconds: 500),
-                          child: AnimatedSlide(
-                            offset: isVisible
-                                ? const Offset(0, 0)
-                                : const Offset(2, 0),
+                        if (widget.subtitle != null)
+                          AnimatedOpacity(
+                            opacity: isVisible ? 1 : 0,
                             duration: const Duration(milliseconds: 500),
-                            child: Text(widget.subtitle),
-                          ),
-                        )
+                            child: AnimatedSlide(
+                              offset: isVisible
+                                  ? const Offset(0, 0)
+                                  : const Offset(2, 0),
+                              duration: const Duration(milliseconds: 500),
+                              child: Text(widget.subtitle!),
+                            ),
+                          )
                       ],
                     ),
                   ),

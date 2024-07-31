@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'
     show BoxDecoration, ChangeNotifier, GlobalKey, Offset, RenderBox;
-import 'package:personal_portfolio/utils/cursor_state.dart';
+import '../utils/cursor_state.dart';
 
 class CursorProvider extends ChangeNotifier {
   CursorState state = CursorState();

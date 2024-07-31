@@ -51,7 +51,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     _gradientController.forward();
 
     Future.delayed(const Duration(seconds: 4), () {
-      context.read<StateProvider>().setNavAnimationStstus(true);
+      context.read<StateProvider>().setNavAnimationStatus(true);
     });
   }
 

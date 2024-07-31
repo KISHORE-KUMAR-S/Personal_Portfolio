@@ -1,13 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_portfolio/extension/screen_size_extension.dart';
-import 'package:personal_portfolio/utils/constants.dart';
-import 'package:personal_portfolio/widgets/date_and_time_widget.dart';
-import 'package:personal_portfolio/widgets/nav_wrapper_widget.dart';
-import 'package:personal_portfolio/widgets/overlapping_hero_text_widget.dart';
-import 'package:personal_portfolio/widgets/overlapping_text_widget.dart';
+import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
+import '../extension/screen_size_extension.dart';
+import '../utils/constants.dart';
+import '../widgets/date_and_time_widget.dart';
+import '../widgets/nav_wrapper_widget.dart';
+import '../widgets/overlapping_hero_text_widget.dart';
+import '../widgets/overlapping_text_widget.dart';
 
 class HeroView extends StatefulWidget {
   final ScrollController scrollController;
@@ -141,7 +141,7 @@ class _HeroViewState extends State<HeroView> {
                               text:
                                   "Flutter Developer & Open Source Enthusiast",
                               style: TextStyle(
-                                fontSize: context.isDesktop ? 16 : 14,
+                                fontSize: context.isDesktop ? 24 : 18,
                                 fontWeight: FontWeight.w800,
                               ),
                               children: [
@@ -149,7 +149,7 @@ class _HeroViewState extends State<HeroView> {
                                   text:
                                       ", been working as a freelancer and in tech companies for years with a straight focus on the flutter and mobile world. Excited for the upcoming opportunities.",
                                   style: TextStyle(
-                                    fontSize: context.isDesktop ? 16 : 12,
+                                    fontSize: context.isDesktop ? 24 : 18,
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),

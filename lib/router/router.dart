@@ -1,10 +1,11 @@
 import 'package:go_router/go_router.dart' show GoRoute, GoRouter;
-import 'package:personal_portfolio/router/routes.dart';
-import 'package:personal_portfolio/screens/about_page.dart';
-import 'package:personal_portfolio/screens/contact_page.dart';
-import 'package:personal_portfolio/screens/experience_page.dart';
-import 'package:personal_portfolio/screens/home_page.dart';
-import 'package:personal_portfolio/screens/works_page.dart';
+
+import '../screens/about_page.dart';
+import '../screens/contact_page.dart';
+import '../screens/experience_page.dart';
+import '../screens/home_page.dart';
+import '../screens/works_page.dart';
+import 'routes.dart';
 
 final router = GoRouter(
   initialLocation: Routes.home,

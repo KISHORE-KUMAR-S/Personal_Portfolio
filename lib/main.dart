@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart' show usePathUrlStrategy;
 import 'package:provider/provider.dart' show ChangeNotifierProvider, Consumer;
 
-import 'package:personal_portfolio/preferences/theme_preferences.dart';
-import 'package:personal_portfolio/providers/state_provider.dart';
-import 'package:personal_portfolio/router/router.dart';
-import 'package:personal_portfolio/widgets/cursor_widget.dart';
+import 'preferences/theme_preferences.dart';
+import 'providers/state_provider.dart';
+import 'router/router.dart';
+import 'widgets/cursor_widget.dart';
 
 void main() {
   final ThemePreferences themePreferences = ThemePreferences(0);
