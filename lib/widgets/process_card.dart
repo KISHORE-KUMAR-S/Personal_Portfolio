@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
 import 'package:entry/entry.dart' show Entry;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:personal_portfolio/config/colors_config.dart';
 import '../extension/screen_size_extension.dart';
 import '../utils/constants.dart';
 import 'overlapping_hero_text_widget.dart';

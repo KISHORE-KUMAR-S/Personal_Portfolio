@@ -1,5 +1,6 @@
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/widgets/jobs_list_view_widget.dart';
 import 'package:personal_portfolio/widgets/section_title.dart';
 import 'package:personal_portfolio/widgets/slide_box_widget.dart';
 
@@ -56,6 +57,7 @@ class _ExperienceViewState extends State<ExperienceView>
             ),
           ),
           const SizedBox(height: 70),
+          const JobsListViewWidget(),
         ],
       ),
     );
